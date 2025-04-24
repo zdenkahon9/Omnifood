@@ -1,0 +1,280 @@
+/* 
+--- 01 TYPOGRAPHY SYSTEM
+
+- Font size (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Font weight:
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+- Line heights:
+Default: 1
+Small: 1.05
+Medium: 1.2
+Large: 1.8
+Paragraph default: 1.6
+
+
+
+- Letter spacing
+-0.5px
+-0.75px
+
+
+--- 02 COLORS
+
+--- 05 SHADOWS
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+
+--- 06 BORDER-RADIUS
+
+default: 9px
+medium: 11px
+
+--- 07 WHITE SPACE
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+ */
+
+:root {
+  --primary-color: #e67e22;
+  --darker-primary-color: #cf711f;
+  --linear-gradient-color: #eb984e;
+  --cta-text-color: #45260a;
+  --text-color: #555;
+  --primary-heading-color: #333;
+  --feature-text-color: #888;
+  --testimonial-name-color: #6f6f6f;
+  --tints-color: #fdf2e9;
+  --darker-tints-color: #fae5d3;
+  --tag-vegetarian-color: #51cf66;
+  --tag-vegan-color: #94d82d;
+  --tag-paleo-color: #ffd43b;
+  --shades-color: ;
+  --accents-color: ;
+  --greys-color: ;
+}
+
+/* General Reusable Component */
+.container {
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+
+  @media (max-width: 75em) {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  @media (max-width: 34em) {
+    row-gap: 4.8rem;
+  }
+}
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 44em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: 44em) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--2-cols,
+.grid--3-cols,
+.grid--4-cols {
+  @media (max-width: 34em) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-center-v {
+  align-items: center;
+}
+
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: var(--primary-heading-color);
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+
+  @media (max-width: 84em) {
+    font-size: 4.4rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+
+  @media (max-width: 75em) {
+    font-size: 3.6rem;
+  }
+
+  @media (max-width: 44em) {
+    margin-bottom: 4.8rem;
+  }
+}
+
+& .heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+
+  @media (max-width: 75em) {
+    font-size: 2.4rem;
+  }
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--darker-primary-color);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 0.3s;
+
+  @media (max-width: 34em) {
+    padding: 2.4rem 1.6rem;
+  }
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: var(--darker-primary-color);
+  color: #fff;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: var(--tints-color);
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+  background-color: var(--cta-text-color);
+  color: var(--tints-color);
+  align-self: end;
+  padding: 1.2rem;
+
+  @media (max-width: 59em) {
+    margin-top: 1.2rem;
+  }
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  line-height: 1.2;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary-color);
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgb(230, 125, 34, 0.5);
+}
+
+/* HELPER/SETTING CLASSES */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+strong {
+  font-weight: 500;
+}
